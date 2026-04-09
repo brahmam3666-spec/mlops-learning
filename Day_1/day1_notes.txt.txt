@@ -1,0 +1,37 @@
+DAY 1 — Introduction to MLOps
+
+What is MLOps?
+MLOps is the practice of combining Machine Learning and DevOps
+to automate model building, training, deployment and monitoring.
+
+Why MLOps?
+- Reproducibility
+- Automation
+- Version control
+- Deployment
+- Monitoring
+
+Traditional ML vs MLOps
+
+Traditional ML
+- Manual training
+- No versioning
+- Hard deployment
+- No monitoring
+
+MLOps
+- Automated pipeline
+- Version control
+- Easy deployment
+- Continuous monitoring
+
+MLOps Lifecycle
+
+1. Data Collection
+2. Data Validation
+3. Data Preprocessing
+4. Model Training
+5. Model Evaluation
+6. Model Deployment
+7. Model Monitoring
+8. Model Retraining

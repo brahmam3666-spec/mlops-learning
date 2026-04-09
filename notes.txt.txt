@@ -1,0 +1,26 @@
+What is MLOps
+
+MLOps is a combination of Machine Learning and DevOps.
+It helps to automate ML model building, training, deployment and monitoring.
+MLOps makes ML models production ready.
+
+
+ML Lifecycle
+
+1. Data Collection
+2. Data Preprocessing
+3. Feature Engineering
+4. Model Training
+5. Model Evaluation
+6. Model Deployment
+7. Model Monitoring
+
+
+Tools Used in MLOps
+
+Version Control : Git, GitHub
+Experiment Tracking : MLflow, Weights & Biases
+Data Versioning : DVC
+Deployment : Docker, Kubernetes
+CI/CD : GitHub Actions, Jenkins
+Cloud : AWS, Azure, GCP
