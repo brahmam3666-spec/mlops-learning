@@ -1,0 +1,14 @@
+Git Day 2 Notes
+
+What is Git:
+Git is a version control system used to track code changes.
+
+Git Workflow:
+Working directory → staging → commit → GitHub
+
+Commands:
+git init → initialize repo
+git add . → add to staging
+git commit → save version
+git push → upload to GitHub
+git status → check changes
