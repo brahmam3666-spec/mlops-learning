@@ -1,0 +1,10 @@
+What is Docker:
+Docker is containerization tool
+
+Concepts:
+Image → template
+Container → running instance
+Dockerfile → instructions
+
+Workflow:
+Dockerfile → Image → Container
