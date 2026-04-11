@@ -1,0 +1,118 @@
+Docker Commands
+
+docker run hello-world
+docker pull python
+docker ps
+docker ps -a
+docker run -it python
+
+Images
+
+docker pull <image>  -->fetch
+Downloads an image from Docker Hub (or a registry) to your local machine.
+e.g. docker pull nginx:latest
+docker images   -->list
+Lists all locally available images with their tags, IDs, and sizes.
+docker build -t <name> .   -->build
+Builds an image from the Dockerfile in the current directory and tags it with a name.
+e.g. docker build -t myapp:v1 .
+docker rmi <image>   -->remove
+Deletes an image from local storage. Use -f to force-remove even if containers depend on it.
+docker tag <src> <target>   -->tag
+Creates an alias tag for an image — useful before pushing to a registry.
+docker push <image>   -->upload
+Uploads a local image to Docker Hub or a private Registry.
+
+Containers
+
+docker ps   -->list
+Lists all currently running containers. Add -a to also show stopped containers.
+docker start <container>   -->start
+Starts a stopped container by name or ID.
+docker stop <container>    -->stop
+Gracefully stops a running container (sends SIGTERM, waits, then SIGKILL).
+docker restart <container>   -->restart
+Stops then immediately starts a container again.
+docker rm <container>    -->remove
+Deletes a stopped container. Use -f to force-remove a running one.
+docker logs <container>    -->inspect
+Shows the stdout/stderr logs of a container. Add -f to stream live output.
+docker inspect <container>    -->inspect
+Returns detailed low-level JSON info about a container — IP, mounts, env vars, etc.
+
+Run&Exec
+
+docker run <image>  -->run
+Creates and starts a new container from an image. The most common command — combines pull + create + start.
+e.g. docker run nginx
+docker run -d <image>   -->run
+Runs the container in detached (background) mode so your terminal stays free.
+docker run -it <image> bash   -->run
+Launches an interactive terminal session inside a new container — great for debugging.
+docker run -p 8080:80 <image>  -->run
+Maps host port 8080 to container port 80, making the service accessible from your machine.
+docker run --name <name> <image>  -->run
+Assigns a custom name to the container instead of the random auto-generated one.
+docker exec -it <container> bash  -->exec
+Opens a shell inside an already-running container without restarting it.
+docker cp <src> <container>:<dst>    -->exec
+Copies files between your host and a container in either direction.
+
+Network
+
+docker network ls   -->list
+Lists all Docker networks on your system (bridge, host, none, and custom ones).
+docker network create <name>    -->create
+Creates a new custom bridge network so containers can communicate by name.
+docker network connect <net> <container>   -->connect
+Attaches a running container to an existing network.
+docker network disconnect <net> <container>    -->disconnect
+Removes a container from a network while it keeps running.
+docker network inspect <name>     -->inspect
+Shows detailed info about a network — connected containers, subnet, gateway, etc.
+docker network rm <name>     -->remove
+Deletes a network. All containers must be disconnected first.
+
+Volumes
+
+docker volume ls   -->list
+Lists all Docker-managed volumes on the host.
+docker volume create <name>    -->create
+Creates a named volume that persists data even after the container stops or is removed.
+docker run -v <vol>:<path> <image>   -->mount
+Mounts a named volume (or a host directory) into the container at the specified path.
+e.g. docker run -v mydata:/app/data nginx
+docker volume inspect <name>    -->inspect
+Shows metadata about a volume — mount point on the host, driver, labels, etc.
+docker volume rm <name>   -->remove
+Deletes a volume permanently. Data inside is gone — only works if no container uses it.
+
+Compose
+
+docker compose up    -->start
+Starts all services defined in docker-compose.yml. Add -d to run in background.
+docker compose down    -->stop
+Stops and removes all containers, networks created by up. Add -v to also remove volumes.
+docker compose build     -->build
+Builds (or rebuilds) images for services that have a build: section in the compose file.
+docker compose ps    -->list
+Shows the status of all containers managed by the current compose project.
+docker compose logs -f   -->inspect
+Streams live logs from all services in the compose project simultaneously.
+docker compose exec <svc> bash    -->exec
+Opens a shell inside a running service container — same as docker exec but uses service names.
+
+System
+
+docker stats    -->monitor
+Live stream of CPU, memory, and network usage for all running containers.
+docker info    -->info
+Displays system-wide info — Docker version, number of containers/images, storage driver, etc.
+docker system df   -->info
+Shows how much disk space is used by images, containers, volumes, and build cache.
+docker system prune   -->clean
+Removes all stopped containers, dangling images, unused networks, and build cache in one shot.
+docker image prune -a   -->clean
+Deletes all unused images (not just dangling ones). Frees significant disk space.
+docker volume prune   -->clean
+Removes all volumes not currently mounted by any container.
