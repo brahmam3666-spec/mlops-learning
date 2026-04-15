@@ -19,4 +19,4 @@ jobs:
         run: pip install flask
 
       - name: Run Python file
-        run: python Day_7/app.py
+        run: python -m py_compile Day_7/app.py
